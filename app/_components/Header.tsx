@@ -18,8 +18,8 @@ export default function Header() {
       <nav>
         <ul className="flex gap-8 items-center font-semibold text-green-700">
           <li>Home</li>
-          <li>Serviços</li>
           <li>Sobre nós</li>
+          <li>Serviços</li>
           <li>Contato</li>
           <li>
             <button className="bg-green-600 p-3 rounded-xl text-white">Solicitar análise</button>
