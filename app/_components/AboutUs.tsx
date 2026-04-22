@@ -1,5 +1,5 @@
 import Image from "next/image"
-import AboutUsImage from "@/public/about-us-eolic-park.jpg"
+import AboutUsImage from "@/public/solar-plates.jpg"
 import { BsCheck } from "react-icons/bs"
 
 export default function AboutUs() {

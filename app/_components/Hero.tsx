@@ -1,5 +1,5 @@
 import Image from "next/image"
-import heroBg from "@/public/paineis-solares.jpeg"
+import heroBg from "@/public/hero-eolic-park.jpg"
 
 export default function Hero() {
   return (
