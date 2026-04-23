@@ -5,11 +5,11 @@ import { BsCheck } from "react-icons/bs"
 export default function AboutUs() {
   return (
     <section className="px-14 py-18">
-      <div className="flex flex-col items-center gap-2 mb-10">
-        <h1 className="text-4xl capitalize">
+      <div className="flex flex-col items-center gap-4 mb-10">
+        <h1 className="text-5xl font-semibold">
           Sobre nós
         </h1>
-        <div className="w-30 h-1 bg-green-600"></div>
+        <div className="h-1 w-36 rounded-full bg-green-600" />
       </div>
       <div className="flex gap-8">
         <div className=" flex-1 shadow-lg shadow-gray-500 outline-white p-4">
