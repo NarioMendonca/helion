@@ -3,9 +3,6 @@ import solarServiceImage from "@/public/placas-lg.jpg"
 import windServiceImage from "@/public/eolic-park.jpeg"
 import monitoringServiceImage from "@/public/renewable-energy-park.jpg"
 import { BsCheckCircleFill } from "react-icons/bs"
-import { FaSolarPanel } from "react-icons/fa"
-import { GiWindTurbine } from "react-icons/gi"
-import { RiLineChartLine } from "react-icons/ri"
 
 const services = [
   {

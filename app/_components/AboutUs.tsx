@@ -28,9 +28,6 @@ export default function AboutUs() {
     <section className="relative overflow-hidden px-6 py-20 sm:px-10 lg:px-14">
       <div className="mx-auto grid w-full max-w-7xl gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <article className="order-2 space-y-6 lg:order-1">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
-            Sobre a Helion
-          </p>
           <h1 className="text-4xl font-semibold leading-tight text-slate-900 sm:text-5xl">
             Engenharia energética que transforma custo em crescimento sustentável.
           </h1>
