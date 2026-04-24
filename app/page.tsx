@@ -4,7 +4,6 @@ import FixedBg from "./_components/FixedBg";
 import { Footer } from "./_components/Footer";
 import Header from "./_components/Header";
 import Hero from "./_components/Hero";
-import OurMission from "./_components/OurMission";
 import OurServices from "./_components/OurServices";
 
 export default function Home() {

@@ -1,50 +1,80 @@
 import Image from "next/image"
-import AboutUsImage from "@/public/solar-plates.jpg"
-import { BsCheck } from "react-icons/bs"
+import AboutUsImage from "@/public/installing-solar-energy.jpg"
+import { BsCheckCircleFill } from "react-icons/bs"
+
+const commitments = [
+  "Projetos com engenharia personalizada para cada operação",
+  "Implantação ágil com padrão técnico e segurança operacional",
+  "Suporte contínuo para evolução e estabilidade energética",
+]
+
+const impactMetrics = [
+  {
+    value: "95%",
+    label: "de redução média nos custos de energia",
+  },
+  {
+    value: "120+",
+    label: "operações atendidas com soluções renováveis",
+  },
+  {
+    value: "24/7",
+    label: "monitoramento e acompanhamento de performance",
+  },
+]
 
 export default function AboutUs() {
   return (
-    <section className="px-14 py-18">
-      <div className="flex flex-col items-center gap-4 mb-10">
-        <h1 className="text-5xl font-semibold">
-          Sobre nós
-        </h1>
-        <div className="h-1 w-36 rounded-full bg-green-600" />
-      </div>
-      <div className="flex gap-8">
-        <div className=" flex-1 shadow-lg shadow-gray-500 outline-white p-4">
-          <div>
-            <Image 
-              src={AboutUsImage}
-              alt="paineis solares"
-              width={1024}
-              height={1024}
-              style={{ objectFit: "cover" }}
-            />
-          </div>
-        </div>
-        <div className="flex flex-col justify-center items-start flex-1 ">
-          <h2 className="text-3xl font-semibold text-green-600">
-            Tecnologia e inovação movendo o futuro da energia.
-          </h2>
-          <p className="py-6 text-gray-600 text-lg text-justify">
-            A Helion nasceu para redefinir a forma como o mundo consome energia. Unimos engenharia, 
-            tecnologia e sustentabilidade para criar soluções inteligentes em energia solar e eólica, 
-            com alta performance e máxima eficiência.
+    <section className="relative overflow-hidden px-6 py-20 sm:px-10 lg:px-14">
+      <div className="mx-auto grid w-full max-w-7xl gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+        <article className="order-2 space-y-6 lg:order-1">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
+            Sobre a Helion
           </p>
-          <p className="py-6 text-gray-600 text-lg text-justify">
-            Helion é mais do que energia: é inovação aplicada ao futuro.
+          <h1 className="text-4xl font-semibold leading-tight text-slate-900 sm:text-5xl">
+            Engenharia energética que transforma custo em crescimento sustentável.
+          </h1>
+          <p className="max-w-2xl text-lg leading-relaxed text-slate-600">
+            A Helion combina tecnologia, inteligência operacional e energia renovável para
+            acelerar resultados reais. Entregamos projetos solares e eólicos orientados por
+            eficiência, previsibilidade financeira e expansão de longo prazo.
           </p>
-          <ul className="flex flex-col gap-2 text-gray-600">
-            <li className="flex gap-1 items-center"><BsCheck className="w-6 h-6 text-green-600" /> Energia Limpa</li>
-            <li className="flex gap-1 items-center"><BsCheck className="w-6 h-6 text-green-600" /> Instalação rápida</li>
-            <li className="flex gap-1 items-center"><BsCheck className="w-6 h-6 text-green-600" /> Suporte de qualidade</li>
-            <li className="flex gap-1 items-center"><BsCheck className="w-6 h-6 text-green-600" /> Sem dores de cabeça</li>
+
+          <ul className="space-y-3">
+            {commitments.map((item) => (
+              <li key={item} className="flex items-start gap-3 text-sm text-slate-700 sm:text-base">
+                <BsCheckCircleFill className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
+                <span>{item}</span>
+              </li>
+            ))}
           </ul>
-          <button className="my-8 bg-green-600 text-white font-semibold p-3 rounded-md cursor-pointer">
-            Contate-nos
+
+          <button className="rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700 cursor-pointer sm:text-base">
+            Fale com um especialista
           </button>
-        </div>
+        </article>
+
+        <aside className="order-1 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm lg:order-2">
+          <div className="relative h-64 sm:h-80">
+            <Image
+              src={AboutUsImage}
+              alt="Parque de energia solar da Helion"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 44vw"
+            />
+            <div className="absolute inset-0 bg-linear-to-t from-slate-950/70 via-slate-900/25 to-transparent" />
+          </div>
+
+          <div className="grid gap-3 p-5 sm:grid-cols-3 sm:p-6">
+            {impactMetrics.map((metric) => (
+              <div key={metric.label} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                <p className="text-2xl font-semibold text-slate-900">{metric.value}</p>
+                <p className="mt-1 text-xs leading-relaxed text-slate-600 sm:text-sm">{metric.label}</p>
+              </div>
+            ))}
+          </div>
+        </aside>
       </div>
     </section>
   )
