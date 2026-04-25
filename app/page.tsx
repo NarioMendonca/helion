@@ -1,5 +1,5 @@
 import AboutUs from "./_components/AboutUs";
-import ContactForm from "./_components/ContactForm";
+import ContactForm from "./_components/contactForm/ContactForm";
 import FixedBg from "./_components/FixedBg";
 import { Footer } from "./_components/Footer";
 import Header from "./_components/Header";
