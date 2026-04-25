@@ -5,11 +5,14 @@ import { isFormField } from "./formConfig"
 import { DiagnosticStepOne } from "./DiagnosticStepOne"
 import { DiagnosticStepTwo } from "./DiagnosticStepTwo"
 import { DiagnosticStepThree } from "./DiagnosticStepThree"
+import { submitContactPayload } from "./contactApi"
 import { CustomerType, EnergyInputMode } from "./types"
 
 export function DiagnosticForm() {
   const [currentStep, setCurrentStep] = useState(1)
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
   const [customerType, setCustomerType] = useState<CustomerType>("")
   const [energyInputMode, setEnergyInputMode] = useState<EnergyInputMode>("")
   const formRef = useRef<HTMLFormElement>(null)
@@ -35,7 +38,7 @@ export function DiagnosticForm() {
     return true
   }
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
     if (!validateCurrentStep(currentStep)) {
@@ -47,7 +50,34 @@ export function DiagnosticForm() {
       return
     }
 
-    setSubmitted(true)
+    const formElement = formRef.current
+    if (!formElement) {
+      return
+    }
+
+    setSubmitError(null)
+    setIsSubmitting(true)
+
+    const formData = new FormData(formElement)
+    const normalizedData = Array.from(formData.entries()).reduce<Record<string, string>>((acc, [key, value]) => {
+      if (typeof value === "string") {
+        acc[key] = value.trim()
+      }
+      return acc
+    }, {})
+
+    try {
+      await submitContactPayload({
+        formType: "diagnostic",
+        data: normalizedData,
+      })
+      setSubmitted(true)
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Falha ao enviar formulario."
+      setSubmitError(message)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -72,6 +102,10 @@ export function DiagnosticForm() {
         </div>
       ) : null}
 
+      {submitError ? (
+        <div className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">{submitError}</div>
+      ) : null}
+
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-xs text-slate-500">Seus dados sao confidenciais e usados apenas para seu diagnostico.</p>
 
@@ -80,14 +114,23 @@ export function DiagnosticForm() {
             <button
               type="button"
               onClick={() => setCurrentStep((previousStep) => Math.max(previousStep - 1, 1))}
+              disabled={isSubmitting}
               className="rounded-xl border border-slate-300 px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
             >
               Voltar
             </button>
           ) : null}
 
-          <button type="submit" className="cursor-pointer rounded-xl bg-cyan-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-cyan-800">
-            {currentStep < totalSteps ? "Continuar diagnostico" : "Quero meu diagnostico gratuito"}
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="cursor-pointer rounded-xl bg-cyan-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-cyan-800 disabled:cursor-not-allowed disabled:opacity-70"
+          >
+            {isSubmitting
+              ? "Enviando..."
+              : currentStep < totalSteps
+                ? "Continuar diagnostico"
+                : "Quero meu diagnostico gratuito"}
           </button>
         </div>
       </div>

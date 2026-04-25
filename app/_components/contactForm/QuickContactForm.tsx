@@ -1,14 +1,41 @@
 "use client"
 
 import { FormEvent, useState } from "react"
+import { submitContactPayload } from "./contactApi"
 import { inputBaseClass } from "./formConfig"
 
 export function QuickContactForm() {
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
 
-  const handleQuickSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleQuickSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    setSubmitted(true)
+    setSubmitError(null)
+    setIsSubmitting(true)
+
+    const formElement = event.currentTarget
+    const formData = new FormData(formElement)
+    const normalizedData = Array.from(formData.entries()).reduce<Record<string, string>>((acc, [key, value]) => {
+      if (typeof value === "string") {
+        acc[key] = value.trim()
+      }
+      return acc
+    }, {})
+
+    try {
+      await submitContactPayload({
+        formType: "quick",
+        data: normalizedData,
+      })
+      setSubmitted(true)
+      formElement.reset()
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Falha ao enviar formulario."
+      setSubmitError(message)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -37,11 +64,16 @@ export function QuickContactForm() {
         </div>
       ) : null}
 
+      {submitError ? (
+        <div className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">{submitError}</div>
+      ) : null}
+
       <button
         type="submit"
-        className="cursor-pointer rounded-xl bg-cyan-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-cyan-800"
+        disabled={isSubmitting}
+        className="cursor-pointer rounded-xl bg-cyan-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-cyan-800 disabled:cursor-not-allowed disabled:opacity-70"
       >
-        Enviar contato rapido
+        {isSubmitting ? "Enviando..." : "Enviar contato rapido"}
       </button>
     </form>
   )
