@@ -1,19 +1,13 @@
-import { BsGraphUpArrow, BsLightningChargeFill } from "react-icons/bs"
-import { RiShieldCheckLine } from "react-icons/ri"
-
 export const strategicPoints = [
   {
-    icon: BsGraphUpArrow,
     title: "Estimativa de economia real",
     description: "Projeção técnica com cenários de retorno e redução de custos operacionais.",
   },
   {
-    icon: RiShieldCheckLine,
     title: "Diagnóstico técnico confiável",
     description: "Equipe especializada em projetos solares e eólicos para operações de alto padrão.",
   },
   {
-    icon: BsLightningChargeFill,
     title: "Plano de implantação sob medida",
     description: "Escopo adaptado ao perfil de consumo e à expansão da sua operação no Ceará.",
   },

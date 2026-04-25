@@ -35,13 +35,8 @@ export function ContactInfoCard() {
 
         <ul className="space-y-4">
           {strategicPoints.map((point) => {
-            const PointIcon = point.icon
-
             return (
               <li key={point.title} className="flex gap-3">
-                <div className="mt-0.5 flex items-center rounded-lg bg-cyan-400/20 p-2 text-cyan-200">
-                  <PointIcon className="h-5 w-5" />
-                </div>
                 <div>
                   <p className="text-sm font-semibold text-white">{point.title}</p>
                   <p className="text-sm text-slate-300">{point.description}</p>

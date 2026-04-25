@@ -51,7 +51,7 @@ export default function AboutUs() {
             </ul>
 
             <Link
-              href="sobre-nos"
+              href="/sobre-nos"
               className="inline-block cursor-pointer rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700 sm:text-base"
             >
               Veja mais sobre nós
@@ -59,7 +59,7 @@ export default function AboutUs() {
           </article>
         </RevealOnScroll>
 
-        <RevealOnScroll delay={0.1} className="order-1 lg:order-2">
+        <RevealOnScroll delay={0.1} className="hidden order-1 lg:order-2 sm:block">
           <aside className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
             <div className="relative h-64 overflow-hidden sm:h-80">
               <ImageHoverZoom className="absolute inset-0">
@@ -78,7 +78,7 @@ export default function AboutUs() {
               {impactMetrics.map((metric) => (
                 <div key={metric.label} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
                   <p className="text-2xl font-semibold text-slate-900">{metric.value}</p>
-                  <p className="mt-1 text-xs leading-relaxed text-slate-600 sm:text-sm">{metric.label}</p>
+                  <p className="mt-1 text-xs sm:text-sm wrap-break-word hyphens-auto leading-relaxed text-slate-600">{metric.label}</p>
                 </div>
               ))}
             </div>

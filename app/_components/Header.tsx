@@ -12,16 +12,16 @@ export default function Header() {
   const closeMenu = () => setIsMenuOpen(false)
 
   return (
-    <header className="fixed top-0 left-0 z-50 w-full border-b border-slate-200/80 bg-white/95 px-4 py-3 backdrop-blur-sm">
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4">
-        <Link href="/" className="flex items-center gap-2">
+    <header className="fixed top-0 left-0 z-50 w-full border-b border-slate-200/80 bg-white/95 px-3 py-3 backdrop-blur-sm sm:px-4">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-2 sm:gap-4">
+        <Link href="/" className="flex items-center gap-1.5 sm:gap-2">
           <Image
             src={HelionIcon}
             alt="Logo da Helion"
-            className="w-12 h-auto"
+            className="h-auto w-8 sm:w-12"
             quality={95}
           />
-          <span className="enterprise-logo bg-linear-90 from-emerald-500 to-cyan-700 text-3xl font-bold tracking-wide">
+          <span className="enterprise-logo bg-linear-90 from-emerald-500 to-cyan-700 text-2xl sm:text-3xl font-bold tracking-wide">
             HELION
           </span>
         </Link>
