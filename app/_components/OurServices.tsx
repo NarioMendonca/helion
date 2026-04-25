@@ -42,7 +42,7 @@ const services = [
 
 export default function OurServices() {
   return (
-    <section className="relative overflow-hidden px-6 py-20 sm:px-10 lg:px-14">
+    <section id="our-services" className="relative overflow-hidden scroll-mt-28 px-6 py-20 sm:px-10 lg:px-14">
 
       <div className="relative mx-auto max-w-7xl">
         <div className="mb-12 flex flex-col items-center gap-4 text-center">

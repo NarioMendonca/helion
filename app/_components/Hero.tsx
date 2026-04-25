@@ -3,7 +3,7 @@ import heroBg from "@/public/hero-eolic-park.jpg"
 
 export default function Hero() {
   return (
-    <section className="hero h-lvh bg-black pt-20">
+    <section id="hero" className="hero h-lvh bg-black pt-20">
       <Image 
         src={heroBg}
         alt="Background"

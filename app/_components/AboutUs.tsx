@@ -1,5 +1,5 @@
 import Image from "next/image"
-import AboutUsImage from "@/public/installing-solar-energy.jpg"
+import AboutUsImage from "@/public/paineis-solares-aboutUs.jpg"
 import { BsCheckCircleFill } from "react-icons/bs"
 
 const commitments = [
@@ -25,7 +25,7 @@ const impactMetrics = [
 
 export default function AboutUs() {
   return (
-    <section className="relative overflow-hidden px-6 py-20 sm:px-10 lg:px-14">
+    <section id="about-us" className="relative overflow-hidden scroll-mt-28 px-6 py-20 sm:px-10 lg:px-14">
       <div className="mx-auto grid w-full max-w-7xl gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <article className="order-2 space-y-6 lg:order-1">
           <h1 className="text-4xl font-semibold leading-tight text-slate-900 sm:text-5xl">
@@ -46,9 +46,12 @@ export default function AboutUs() {
             ))}
           </ul>
 
-          <button className="rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700 cursor-pointer sm:text-base">
+          <a
+            href="#contact-form"
+            className="inline-block cursor-pointer rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700 sm:text-base"
+          >
             Fale com um especialista
-          </button>
+          </a>
         </article>
 
         <aside className="order-1 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm lg:order-2">

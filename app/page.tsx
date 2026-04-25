@@ -5,6 +5,7 @@ import { Footer } from "./_components/Footer";
 import Header from "./_components/Header";
 import Hero from "./_components/Hero";
 import OurServices from "./_components/OurServices";
+import SimpleProcess from "./_components/SimpleProcess";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Hero />
       <AboutUs />
       <FixedBg />
+      <SimpleProcess />
       <OurServices />
       <ContactForm />
       <Footer />

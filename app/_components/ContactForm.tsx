@@ -26,7 +26,7 @@ const inputBaseClass =
 
 export default function ContactForm() {
   return (
-    <section className="relative overflow-hidden bg-linear-to-br from-slate-950 to-slate-900 px-6 py-20 sm:px-10 lg:px-14">
+    <section id="contact-form" className="relative overflow-hidden scroll-mt-28 bg-linear-to-br from-slate-950 to-slate-900 px-6 py-20 sm:px-10 lg:px-14">
       <div className="relative mx-auto grid w-full max-w-7xl gap-8 lg:grid-cols-[0.95fr_1.35fr]">
         <aside className="overflow-hidden rounded-3xl bg-white/10 text-white backdrop-blur-sm">
           <div className="relative h-56">
