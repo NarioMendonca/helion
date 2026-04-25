@@ -3,6 +3,8 @@ import solarServiceImage from "@/public/placas-lg.jpg"
 import windServiceImage from "@/public/eolic-park.jpeg"
 import monitoringServiceImage from "@/public/renewable-energy-park.jpg"
 import { BsCheckCircleFill } from "react-icons/bs"
+import { ImageHoverZoom } from "./motion/ImageHoverZoom"
+import { RevealOnScroll } from "./motion/RevealOnScroll"
 
 const services = [
   {
@@ -45,7 +47,7 @@ export default function OurServices() {
     <section id="our-services" className="relative overflow-hidden scroll-mt-28 px-6 py-20 sm:px-10 lg:px-14">
 
       <div className="relative mx-auto max-w-7xl">
-        <div className="mb-12 flex flex-col items-center gap-4 text-center">
+        <RevealOnScroll className="mb-12 flex flex-col items-center gap-4 text-center">
           <h1 className="max-w-4xl text-4xl font-semibold text-slate-900 sm:text-5xl">
             Nossos serviços em energia renovável
           </h1>
@@ -55,78 +57,81 @@ export default function OurServices() {
             projetos confiáveis e preparados para a expansão energética no interior
             do Ceará.
           </p>
-        </div>
+        </RevealOnScroll>
 
         <div className="grid gap-6 lg:grid-cols-3">
-          {services.map((service) => {
+          {services.map((service, index) => {
             return (
-              <article
-                key={service.title}
-                className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-              >
-                <div className="relative h-56">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div
-                    className="absolute inset-0 bg-[#00000023]"
-                  />
-                </div>
+              <RevealOnScroll key={service.title} delay={index * 0.08}>
+                <article className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                  <div className="relative h-56 overflow-hidden">
+                    <ImageHoverZoom className="absolute inset-0">
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </ImageHoverZoom>
+                    <div
+                      className="pointer-events-none absolute inset-0 bg-[#00000023]"
+                    />
+                  </div>
 
-                <div className="space-y-4 p-6">
-                  <h2 className="text-xl font-semibold text-slate-900">
-                    {service.title}
-                  </h2>
-                  <p className="text-sm leading-relaxed text-slate-600">
-                    {service.description}
-                  </p>
+                  <div className="space-y-4 p-6">
+                    <h2 className="text-xl font-semibold text-slate-900">
+                      {service.title}
+                    </h2>
+                    <p className="text-sm leading-relaxed text-slate-600">
+                      {service.description}
+                    </p>
 
-                  <ul className="space-y-2">
-                    {service.highlights.map((highlight) => (
-                      <li
-                        key={highlight}
-                        className="flex items-start gap-2 text-sm text-slate-700"
-                      >
-                        <BsCheckCircleFill className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
-                        <span>{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
+                    <ul className="space-y-2">
+                      {service.highlights.map((highlight) => (
+                        <li
+                          key={highlight}
+                          className="flex items-start gap-2 text-sm text-slate-700"
+                        >
+                          <BsCheckCircleFill className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
+                          <span>{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </article>
+              </RevealOnScroll>
             )
           })}
         </div>
 
-        <div className="mt-10 grid gap-4 rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-sm sm:grid-cols-2 lg:grid-cols-3">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">
-              Segurança operacional
-            </p>
-            <p className="mt-2 text-sm text-slate-600">
-              Protocolos técnicos e execução com foco em previsibilidade e qualidade.
-            </p>
+        <RevealOnScroll delay={0.12}>
+          <div className="mt-10 grid gap-4 rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-sm sm:grid-cols-2 lg:grid-cols-3">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">
+                Segurança operacional
+              </p>
+              <p className="mt-2 text-sm text-slate-600">
+                Protocolos técnicos e execução com foco em previsibilidade e qualidade.
+              </p>
+            </div>
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">
+                Inovação aplicada
+              </p>
+              <p className="mt-2 text-sm text-slate-600">
+                Soluções orientadas por dados para elevar eficiência e performance energética.
+              </p>
+            </div>
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">
+                Presença regional
+              </p>
+              <p className="mt-2 text-sm text-slate-600">
+                Estrutura para atender empresas e comunidades em toda a região do Ceará.
+              </p>
+            </div>
           </div>
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">
-              Inovação aplicada
-            </p>
-            <p className="mt-2 text-sm text-slate-600">
-              Soluções orientadas por dados para elevar eficiência e performance energética.
-            </p>
-          </div>
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">
-              Presença regional
-            </p>
-            <p className="mt-2 text-sm text-slate-600">
-              Estrutura para atender empresas e comunidades em toda a região do Ceará.
-            </p>
-          </div>
-        </div>
+        </RevealOnScroll>
       </div>
     </section>
   )

@@ -1,20 +1,23 @@
 import Image from "next/image"
 import viabilityImage from "@/public/renewable-energy-park.jpg"
 import { strategicPoints } from "./formConfig"
+import { ImageHoverZoom } from "../motion/ImageHoverZoom"
 
 export function ContactInfoCard() {
   return (
     <aside className="overflow-hidden rounded-3xl bg-white/10 text-white backdrop-blur-sm">
-      <div className="relative h-56">
-        <Image
-          src={viabilityImage}
-          alt="Parque de energia renovável"
-          fill
-          className="object-cover"
-          sizes="(max-width: 1024px) 100vw, 40vw"
-        />
-        <div className="absolute inset-0 bg-linear-to-t from-slate-950/90 via-slate-900/50 to-transparent" />
-        <div className="absolute bottom-5 left-5 right-5">
+      <div className="relative h-56 overflow-hidden">
+        <ImageHoverZoom className="absolute inset-0">
+          <Image
+            src={viabilityImage}
+            alt="Parque de energia renovável"
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 40vw"
+          />
+        </ImageHoverZoom>
+        <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-slate-950/90 via-slate-900/50 to-transparent" />
+        <div className="pointer-events-none absolute bottom-5 left-5 right-5">
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-200">
             Análise estratégica Helion
           </p>
