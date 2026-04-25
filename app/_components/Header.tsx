@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import HelionIcon from "@/public/helion-icon-no-bg.png"
 import "./header.css"
 
@@ -13,59 +14,58 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 z-50 w-full border-b border-slate-200/80 bg-white/95 px-4 py-3 backdrop-blur-sm">
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4">
-        <a href="#hero" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2">
           <Image
             src={HelionIcon}
             alt="Logo da Helion"
-            width={48}
-            height={48}
+            className="w-12 h-auto"
             quality={95}
           />
           <span className="enterprise-logo bg-linear-90 from-emerald-500 to-cyan-700 text-3xl font-bold tracking-wide">
             HELION
           </span>
-        </a>
+        </Link>
 
         <nav aria-label="Navegação principal" className="hidden lg:block">
           <ul className="flex items-center justify-end gap-2 text-xs font-semibold text-slate-700 sm:gap-4 sm:text-sm">
             <li>
-              <a href="#hero" className="text-lg rounded-md px-2 py-1 transition hover:text-emerald-700">
+              <Link href="/#hero" className="text-lg rounded-md px-2 py-1 transition hover:text-emerald-700">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#about-us" className="text-lg rounded-md px-2 py-1 transition hover:text-emerald-700">
+              <Link href="/sobre-nos" className="text-lg rounded-md px-2 py-1 transition hover:text-emerald-700">
                 Sobre nós
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#our-services" className="text-lg rounded-md px-2 py-1 transition hover:text-emerald-700">
+              <Link href="/#our-services" className="text-lg rounded-md px-2 py-1 transition hover:text-emerald-700">
                 Serviços
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#footer" className="text-lg rounded-md px-2 py-1 transition hover:text-emerald-700">
+              <Link href="/#footer" className="text-lg rounded-md px-2 py-1 transition hover:text-emerald-700">
                 Contato
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#contact-form"
+              <Link
+                href="/#contact-form"
                 className="text-lg rounded-xl bg-cyan-700 px-4 py-3 text-white transition hover:bg-cyan-800"
               >
                 Solicitar análise
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
 
         <div className="flex items-center gap-2 lg:hidden">
-          <a
-            href="#contact-form"
+          <Link
+            href="/#contact-form"
             className="rounded-xl bg-cyan-700 px-4 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-cyan-800"
           >
             Solicitar análise
-          </a>
+          </Link>
 
           <button
             type="button"
@@ -106,40 +106,40 @@ export default function Header() {
       >
         <ul className="space-y-1 rounded-2xl border-slate-200 p-3 text-sm font-semibold text-slate-700">
           <li>
-            <a
-              href="#hero"
+            <Link
+              href="/#hero"
               onClick={closeMenu}
               className="block rounded-lg px-3 py-2 transition hover:bg-emerald-100 hover:text-emerald-700"
             >
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#about-us"
+            <Link
+              href="/sobre-nos"
               onClick={closeMenu}
               className="block rounded-lg px-3 py-2 transition hover:bg-emerald-100 hover:text-emerald-700"
             >
               Sobre nós
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#our-services"
+            <Link
+              href="/#our-services"
               onClick={closeMenu}
               className="block rounded-lg px-3 py-2 transition hover:bg-emerald-100 hover:text-emerald-700"
             >
               Serviços
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#footer"
+            <Link
+              href="/#footer"
               onClick={closeMenu}
               className="block rounded-lg px-3 py-2 transition hover:bg-emerald-100 hover:text-emerald-700"
             >
               Contato
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

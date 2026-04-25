@@ -8,16 +8,14 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div className="md:col-span-2">
-            <div className="flex items-center h-16 w-16 gap-2">
-                    <Image 
-                      src={HelionIcon} 
-                      alt="Logo da Helion"
-                      width={48}
-                      height={48}
-                      quality={95}
-                    />
-                    <span className="enterprise-logo text-3xl font-bold bg-linear-90 from-green-500 to-blue-700">HELION</span>
-                  </div>
+            <div className="flex items-center h-12 w-12 gap-2 mb-4">
+              <Image 
+                src={HelionIcon} 
+                alt="Logo da Helion"
+                quality={95}
+              />
+              <span className="enterprise-logo text-3xl font-bold bg-linear-90 from-green-500 to-blue-700">HELION</span>
+            </div>
             <p className="text-slate-400 max-w-md">
               Líder global em soluções de energia renovável, transformando a forma como empresas
               consomem energia e contribuem para um futuro sustentável.
@@ -51,10 +49,6 @@ export function Footer() {
               </li>
             </ul>
           </div>
-        </div>
-
-        <div className="border-t border-slate-800 pt-8 text-center text-slate-500">
-          <p>&copy; 2026 Helion. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>

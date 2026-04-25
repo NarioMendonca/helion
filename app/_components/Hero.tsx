@@ -4,7 +4,7 @@ import { RevealOnScroll } from "./motion/RevealOnScroll"
 
 export default function Hero() {
   return (
-    <section id="hero" className="hero h-lvh bg-black pt-20">
+    <section id="hero" className="relative hero h-lvh bg-black pt-20">
       <Image 
         src={heroBg}
         alt="Background"

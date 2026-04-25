@@ -70,6 +70,7 @@ export default function OurServices() {
                         src={service.image}
                         alt={service.title}
                         fill
+                        sizes="100%"
                         className="object-cover"
                       />
                     </ImageHoverZoom>
@@ -105,7 +106,7 @@ export default function OurServices() {
         </div>
 
         <RevealOnScroll delay={0.12}>
-          <div className="mt-10 grid gap-4 rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-sm sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-4 rounded-2xl p-6 shadow-sm sm:grid-cols-2 lg:grid-cols-3">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">
                 Segurança operacional

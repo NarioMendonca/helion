@@ -11,7 +11,7 @@ export default function FixedBg() {
           src={BackgroundImage}
           alt="paineis solares"
           fill
-          objectFit="cover"
+          className="object-cover"
           quality={95}
         />
       </div>

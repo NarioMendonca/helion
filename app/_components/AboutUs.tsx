@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 import AboutUsImage from "@/public/paineis-solares-aboutUs.jpg"
 import { BsCheckCircleFill } from "react-icons/bs"
 import { ImageHoverZoom } from "./motion/ImageHoverZoom"
@@ -16,7 +17,7 @@ const impactMetrics = [
     label: "de redução média nos custos de energia",
   },
   {
-    value: "120+",
+    value: "180+",
     label: "operações atendidas com soluções renováveis",
   },
   {
@@ -49,12 +50,12 @@ export default function AboutUs() {
               ))}
             </ul>
 
-            <a
-              href="#contact-form"
+            <Link
+              href="sobre-nos"
               className="inline-block cursor-pointer rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700 sm:text-base"
             >
-              Fale com um especialista
-            </a>
+              Veja mais sobre nós
+            </Link>
           </article>
         </RevealOnScroll>
 
